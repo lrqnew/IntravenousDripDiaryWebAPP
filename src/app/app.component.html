@@ -1,0 +1,35 @@
+<div style="padding: 15px 0">
+   
+    <WingBlank [size]="'md'">
+      <ng-template [ngTemplateOutlet]="placeHolder"></ng-template>
+    </WingBlank>
+    <ng-template #placeHolder>
+      <div class="placeholder">
+          <img src="../assets/images/logo.png" alt="">
+          <p>点滴日记</p>
+      </div>
+    </ng-template>
+    <div class="am-demo-page">
+        <div class="am-list" style="margin:0;">
+          <div class="am-list-header"></div>
+          <div class="am-list-body">
+            <InputItem
+              [type]="'email'"
+              [placeholder]="'请输入邮箱'"
+              (onChange)="inputChange($event)"
+              [content]="'账号'"
+            >
+            </InputItem>
+            <InputItem [type]="'password'" [placeholder]="'请输入密码'" [content]="'密码'"></InputItem>
+          </div>
+        </div>
+    </div>
+    <WingBlank class="btnLogin">
+    <div Button [type]="'primary'">登录</div>
+    </WingBlank>
+    <WhiteSpace></WhiteSpace>
+    <WingBlank class="goReg">
+        <a href="javascript:;">没有账号,请注册</a>
+    </WingBlank>
+ 
+</div>
