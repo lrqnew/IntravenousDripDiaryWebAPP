@@ -1,0 +1,11 @@
+.placeholder {
+    color: #eaf1f1;
+    text-align: center;
+    height:100%;
+    line-height: 30px;
+    width: 100%;
+  }
+.placeholder p{
+    font-size: 24px;
+    color: cadetblue;
+}
