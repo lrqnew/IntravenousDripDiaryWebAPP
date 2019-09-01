@@ -1,26 +1,35 @@
 <div style="padding: 15px 0">
-        <app-logo></app-logo>
-        <div class="am-demo-page">
-            <div class="am-list" style="margin:0;">
-              <div class="am-list-header"></div>
-              <div class="am-list-body">
-                <InputItem
-                  [type]="'email'"
-                  [placeholder]="'请输入邮箱'"
-                  (onChange)="inputChange($event)"
-                  [content]="'账号'"
-                >
+    <app-logo></app-logo>
+    <!-- <div class="am-demo-page">
+        <div class="am-list" style="margin:0;">
+            <div class="am-list-header"></div>
+            <div class="am-list-body">
+                <InputItem [type]="'email'" [placeholder]="'请输入邮箱'" (onChange)="inputChange($event)" [content]="'账号'">
                 </InputItem>
                 <InputItem [type]="'password'" [placeholder]="'请输入密码'" [content]="'密码'"></InputItem>
-              </div>
             </div>
         </div>
+    </div> -->
+    <div class="am-list-header"></div>
+    <form [formGroup]="registerForm">
+        <List [renderFooter]="renderFooter">
+            <InputItem [placeholder]="'请输入邮箱'" [error]="isError" [focus]="onFocus" [value]="formData.username"
+                [clear]="true" formControlName="username" id="username" (onErrorClick)="inputErrorClick($event)"
+                (onChange)="inputChange($event)" [content]="'账号'">
+            </InputItem>
+            <InputItem id="password" formControlName="password" [placeholder]="'请输入密码'" [type]="'password'"
+                [(ngModel)]="formData.password" [value]="formData.password" [content]="'密码'">
+            </InputItem>
+
+        </List>
         <WingBlank class="btnLogin">
-        <div Button [type]="'primary'" [routerLink]="['/index']" routerLinkActive="router-link-active" >登录</div>
+            <a Button [type]="'primary'" [inline]="false" (onClick)="onSubmit()">
+                登录
+            </a>
         </WingBlank>
-        <WhiteSpace></WhiteSpace>
-        <WingBlank class="goReg">
-            <a [routerLink]="['/reg']" routerLinkActive="router-link-active" >没有账号,请注册</a>
-        </WingBlank>
-     
-    </div>
+    </form>
+    <WhiteSpace></WhiteSpace>
+    <WingBlank class="goReg">
+        <a [routerLink]="['/reg']" routerLinkActive="router-link-active">没有账号,请注册</a>
+    </WingBlank>
+</div>
