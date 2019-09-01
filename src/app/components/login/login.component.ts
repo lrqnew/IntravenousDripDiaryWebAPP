@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
+import {ValidateBase} from '../../../ValidatorBase'
 import { ToastService } from 'ng-zorro-antd-mobile';
 @Component({
   selector: 'app-login',
@@ -39,9 +40,7 @@ export class LoginComponent implements OnInit {
 
   validationMessage: any = {
     username: {
-      minlength: 'At least four characters for account',
-      maxlength: 'At most ten characters for account',
-      required: 'username requied',
+      required: '邮箱为空',
       email:'邮箱格式不对'
     },
     password: {}
@@ -61,14 +60,14 @@ export class LoginComponent implements OnInit {
   onClick() {
     console.log('click');
   }
-
+  
   buildForm(): void {
     this.registerForm = new FormGroup({
       username: new FormControl(this.formData.username, [
         Validators.required,
-        // Validators.maxLength(10),
-        // Validators.minLength(5)
-        Validators.email,
+        // Validators.email
+        ValidateBase.email()
+       
       ]),
       password: new FormControl(this.formData.password, [])
     });
@@ -79,6 +78,7 @@ export class LoginComponent implements OnInit {
   }
 
   onValueChanged(data?: any) {
+   
     if (!this.registerForm) {
       return;
     }
@@ -97,6 +97,7 @@ export class LoginComponent implements OnInit {
   }
 
   beforeSubmit() {
+
     const form = this.registerForm;
     for (const field in this.formErrors) {
       this.formErrors[field] = '';
@@ -148,13 +149,16 @@ export class LoginComponent implements OnInit {
   }
 
   inputErrorClick(e) {
-    const toast = this._toast.info('At least four charactors for account', 4000, null, false, 'top');
+
+    const toast = this._toast.fail('邮箱格式错误', 2000);
 
   }
 
   inputChange(e) {
-    if (e.replace(/\s/g, '').length < 5 && e.replace(/\s/g, '').length > 0) {
+    var regemail = /\w[-\\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,14}/;
+    if (!(regemail.test(e))) {
       this.isError = true;
+      this.validationMessage.username.email="邮箱格式不对"
     } else {
       this.isError = false;
     }

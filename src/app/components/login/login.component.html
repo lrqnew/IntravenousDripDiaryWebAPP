@@ -13,14 +13,13 @@
     <div class="am-list-header"></div>
     <form [formGroup]="registerForm">
         <List [renderFooter]="renderFooter">
-            <InputItem [placeholder]="'请输入邮箱'" [error]="isError" [focus]="onFocus" [value]="formData.username"
+            <InputItem  [placeholder]="'请输入邮箱'" [error]="isError" [focus]="onFocus" [value]="formData.username" 
                 [clear]="true" formControlName="username" id="username" (onErrorClick)="inputErrorClick($event)"
                 (onChange)="inputChange($event)" [content]="'账号'">
             </InputItem>
             <InputItem id="password" formControlName="password" [placeholder]="'请输入密码'" [type]="'password'"
                 [(ngModel)]="formData.password" [value]="formData.password" [content]="'密码'">
             </InputItem>
-
         </List>
         <WingBlank class="btnLogin">
             <a Button [type]="'primary'" [inline]="false" (onClick)="onSubmit()">
