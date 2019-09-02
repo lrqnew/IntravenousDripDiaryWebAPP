@@ -40,10 +40,12 @@ export class LoginComponent implements OnInit {
 
   validationMessage: any = {
     username: {
-      required: '邮箱为空',
+      // required: '邮箱为空',
       email:'邮箱格式不对'
     },
-    password: {}
+    password: {
+      required: '密码不能为空',
+    }
   };
 
   // renderHeader() {
@@ -64,12 +66,14 @@ export class LoginComponent implements OnInit {
   buildForm(): void {
     this.registerForm = new FormGroup({
       username: new FormControl(this.formData.username, [
-        Validators.required,
+        // Validators.required,
         // Validators.email
         ValidateBase.email()
        
       ]),
-      password: new FormControl(this.formData.password, [])
+      password: new FormControl(this.formData.password, [
+        Validators.required
+      ])
     });
 
     this.registerForm.valueChanges.subscribe(data => this.onValueChanged(data));

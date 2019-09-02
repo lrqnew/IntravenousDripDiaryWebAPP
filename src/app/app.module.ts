@@ -11,6 +11,8 @@ import {LogoComponent} from './components/logo/logo.component';
 import { RegComponent } from './components/reg/reg.component';
 import { LoginComponent } from './components/login/login.component';
 import { IndexComponent } from './components/index/index.component';
+import {apiList} from './common/app.api';
+import {httpInterceptorProviders} from 'src/app/common/http-interceptors/index';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,7 @@ import { IndexComponent } from './components/index/index.component';
     NgZorroAntdMobileModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders,apiList],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
