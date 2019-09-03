@@ -18,7 +18,7 @@
                 (onChange)="inputChange($event)" [content]="'账号'">
             </InputItem>
             <InputItem id="password" formControlName="password" [placeholder]="'请输入密码'" [type]="'password'"
-                [(ngModel)]="formData.password" [value]="formData.password" [content]="'密码'">
+                [(ngModel)]="formData.password" [value]="formData.password" [content]="'密码'" [clear]="true">
             </InputItem>
         </List>
         <WingBlank class="btnLogin">
@@ -30,5 +30,6 @@
     <WhiteSpace></WhiteSpace>
     <WingBlank class="goReg">
         <a [routerLink]="['/reg']" routerLinkActive="router-link-active">没有账号,请注册</a>
+        <a class="ForgotPwd" [routerLink]="['/reg']" routerLinkActive="router-link-active">忘记密码？</a>
     </WingBlank>
 </div>

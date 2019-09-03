@@ -3,5 +3,8 @@
     margin-top:1rem;
 }
 .goReg{
-    text-align: center;
+    text-align: right;
+}
+.ForgotPwd{
+    padding-left: 1rem;
 }

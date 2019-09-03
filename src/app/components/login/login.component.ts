@@ -30,12 +30,10 @@ export class LoginComponent implements OnInit {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'my-auth-token'
     })
   };
   renderFooter: Function;
   registerForm: FormGroup;
-  stepper_value: number = 20;
   isError: boolean = false;
 
   onFocus: object = {
@@ -61,23 +59,15 @@ export class LoginComponent implements OnInit {
       required: '密码不能为空',
     }
   };
-
-  // renderHeader() {
-  //   return 'Form Validation';
-  // }
   failToast(msg:string) {
     const toast = this._toast.fail(msg, 2000);
   }
   successToast() {
     const toast = this._toast.success('登陆成功', 2000)
   }
-  // bindRenderFooter() {
-  //   return (this.formErrors && this.formErrors['username']) || '';
-  // }
-
-  // onClick() {
-  //   console.log('click');
-  // }
+  bindRenderFooter() {
+    return (this.formErrors && this.formErrors['username']) || '';
+  }
   
   buildForm(): void {
     this.registerForm = new FormGroup({
@@ -91,19 +81,15 @@ export class LoginComponent implements OnInit {
         Validators.required
       ])
     });
-
     this.registerForm.valueChanges.subscribe(data => this.onValueChanged(data));
-
     this.onValueChanged();
   }
 
   onValueChanged(data?: any) {
-   
     if (!this.registerForm) {
       return;
     }
     const form = this.registerForm;
-
     for (const field in this.formErrors) {
       this.formErrors[field] = '';
       const control = form.get(field);
@@ -117,12 +103,10 @@ export class LoginComponent implements OnInit {
   }
 
   beforeSubmit() {
-
     const form = this.registerForm;
     for (const field in this.formErrors) {
       this.formErrors[field] = '';
       const control = form.get(field);
-
       if (control && !control.valid) {
         const messages = this.validationMessage[field];
         for (const key in control.errors) {
@@ -140,9 +124,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  switchCheck(value) {
-    console.log('switch status:', value);
-  }
   //登录
   onSubmit() {
     if (this.beforeSubmit()) {
@@ -152,6 +133,8 @@ export class LoginComponent implements OnInit {
         if(res.code===200){
            //保存token
           localStorage.setItem("token", res.token);
+          //保存用户信息
+          localStorage.setItem("userInfo",JSON.stringify(res.userInfo[0]));
           this.successToast();
           this.router.navigateByUrl('/index');
         }else{
@@ -177,10 +160,6 @@ export class LoginComponent implements OnInit {
     this.isError = false;
   }
 
-  afterChange(event) {
-    console.log(event, 'afterChange');
-  }
-
   inputErrorClick(e) {
 
     const toast = this._toast.fail('邮箱格式错误', 2000);
@@ -196,11 +175,7 @@ export class LoginComponent implements OnInit {
       this.isError = false;
     }
     this.formData.username = e;
-  }
-
-  setpperChange($event) {
-    console.log($event, 'change');
-  }
+  };
 
   ngOnInit() {
     //检测设备
@@ -217,7 +192,7 @@ export class LoginComponent implements OnInit {
       }
     };
     this.buildForm();
-    // this.renderFooter = this.bindRenderFooter.bind(this);
+    this.renderFooter = this.bindRenderFooter.bind(this);
   }
 
 }

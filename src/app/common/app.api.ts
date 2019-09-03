@@ -17,10 +17,12 @@ export class apiList implements OnInit {
           userPwd: ''
         }
       },
-      'getUser': {
-        path: '/getUser',
+      'selectDiary': {
+        path: '/api/diary/selectDiary',
         params: {
-          id: ''
+         
+          userId: JSON.parse(localStorage.getItem("userInfo")).userId,
+         
         }
       }
     }

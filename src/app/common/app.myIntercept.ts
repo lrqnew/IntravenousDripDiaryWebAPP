@@ -21,7 +21,7 @@ export class InterceptorService implements HttpInterceptor {
             if (localStorage.getItem('token')) {
                 // console.log(2);
                 const token = localStorage.getItem('token');
-                authReq = req.clone({ setHeaders: { token } });
+                authReq = req.clone({ setHeaders: {Authorization:"Bearer "+token } });
                 return next.handle(authReq);
             } else {
                 // 未登录  ==  access_token
