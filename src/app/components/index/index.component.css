@@ -1,3 +1,47 @@
 .big{
     height: 100%;
 }
+.diary_date {
+    width: 60px;
+    height: 80px;
+    background-size: 80%;
+    float: left;
+    position: relative;
+    background-color: #F7F7F7;
+}
+.diary_date .diary_month {
+    position: absolute;
+    font-size: 10px;
+    top: 0;
+    width: 100%;
+    background-color: #F8931F;
+    border-bottom: none;
+    text-align: center;
+    color: white;
+    padding: 3px 0;
+}
+.diary_date strong {
+    position: absolute;
+    font-size: 26px;
+    top: 24px;
+    left: 16px;
+}
+.diary_date .calendar_year {
+    color: #666666;
+    border-top: 1px solid #F9F9F9;
+    position: relative;
+    top: 63px;
+    font-size: 10px;
+    text-align: center;
+    background-color: #F3EDED;
+    line-height: 1.5;
+}
+.am-list-item{
+    padding-left: 8px;
+}
+.diaryList{
+  padding-top: 8px;
+}
+.am-list-item {
+    padding: 3px;
+}

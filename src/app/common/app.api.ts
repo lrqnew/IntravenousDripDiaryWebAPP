@@ -8,13 +8,13 @@ export class apiList implements OnInit {
   baseurl: any = '';
   urlList: any = {};
   constructor() { 
-    this.baseurl = 'http://127.0.0.1';
+    this.baseurl = 'http://localhost:3000';
     this.urlList =  {
-      'login': {
-        path: '/login',
+      'userLogin': {
+        path:'/api/user/login',
         params: {
-          username: '',
-          password: ''
+          email: '',
+          userPwd: ''
         }
       },
       'getUser': {

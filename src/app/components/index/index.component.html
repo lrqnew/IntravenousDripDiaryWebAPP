@@ -16,10 +16,24 @@
 
             <div style="background-color: white;height: 100%;  text-align: center">
 
-                <div style="padding-top: 60px">Clicked Life tab， show Life information</div>
-                <ng-container>
-                    <ng-template [ngTemplateOutlet]="content"></ng-template>
-                </ng-container>
+                <div class="diaryList">
+                    <!--日记列表-->
+                    <List [className]="'my-list'" [renderHeader]="renderHeader1">
+                        <ListItem [arrow]="'horizontal'" [thumb]='content' multipleLine (onClick)="onClick()">
+                            Title
+                            <Brief>subtitle</Brief>
+                        </ListItem>
+                        <ListItem [arrow]="'horizontal'" [thumb]='content' multipleLine (onClick)="onClick()">
+                                Title
+                                <Brief>subtitle</Brief>
+                            </ListItem>
+                            <ListItem [arrow]="'horizontal'" [thumb]='content' multipleLine (onClick)="onClick()">
+                                    Title
+                                    <Brief>subtitle</Brief>
+                                </ListItem>
+                    </List>
+                </div>
+
             </div>
         </TabBarItem>
         <TabBarItem [title]="'写日记'" [key]="2" [icon]="icon2" [selectedIcon]="icon22">
@@ -34,10 +48,12 @@
                 </div>
             </ng-template>
             <div style="background-color: white; height: 100%; text-align: center">
-                <div style="padding-top: 60px">Clicked Koubei tab， show Koubei information</div>
-                <ng-container>
+                <div>
+                    写日记
+                </div>
+                <!-- <ng-container>
                     <ng-template [ngTemplateOutlet]="content"></ng-template>
-                </ng-container>
+                </ng-container> -->
             </div>
         </TabBarItem>
         <TabBarItem [title]="'我的'" [key]="3" [icon]="icon3" [selectedIcon]="icon33">
@@ -53,13 +69,17 @@
             </ng-template>
             <div style="background-color: white; height: 100%; text-align: center">
                 <div style="padding-top: 60px">Clicked Friend tab， show Friend information</div>
-                <ng-container>
-                    <ng-template [ngTemplateOutlet]="content"></ng-template>
-                </ng-container>
+
             </div>
         </TabBarItem>
     </TabBar>
     <ng-template #content>
-
+        <div class="am-list-item">
+            <div class="diary_date">
+                <div class="diary_month">8月</div>
+                <strong>01</strong>
+                <div class="calendar_year">2019</div>
+            </div>
+        </div>
     </ng-template>
 </div>

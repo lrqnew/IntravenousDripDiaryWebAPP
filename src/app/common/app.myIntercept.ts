@@ -16,11 +16,11 @@ export class InterceptorService implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         let authReq: any;
         // 实现第一次不拦截的方式：1. 指定接口不拦截  2. 判断本地localStorage
-        let loginUrl = this.api.baseurl + this.api.urlList['login']['path'];
+        let loginUrl = this.api.baseurl + this.api.urlList['userLogin']['path'];
         if (req.url !== loginUrl) {
-            if (localStorage.getItem('access_token')) {
+            if (localStorage.getItem('token')) {
                 // console.log(2);
-                const token = localStorage.getItem('access_token');
+                const token = localStorage.getItem('token');
                 authReq = req.clone({ setHeaders: { token } });
                 return next.handle(authReq);
             } else {

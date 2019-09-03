@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import {ValidateBase} from '../../../ValidatorBase'
 import { ToastService } from 'ng-zorro-antd-mobile';
+import { HttpHeaders } from '@angular/common/http';
+import { selfHttp } from 'src/app/common/app.service';
+import {apiList} from '../../common/app.api'; 
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,12 +17,22 @@ import { ToastService } from 'ng-zorro-antd-mobile';
       }
     `
   ],
+  providers:[selfHttp, apiList]
 })
 export class LoginComponent implements OnInit {
  
   constructor(
-    private _toast: ToastService
+    private _toast: ToastService,
+    public http: selfHttp, 
+    public api: apiList,
+    public router:Router
   ) { }
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'my-auth-token'
+    })
+  };
   renderFooter: Function;
   registerForm: FormGroup;
   stepper_value: number = 20;
@@ -51,17 +65,19 @@ export class LoginComponent implements OnInit {
   // renderHeader() {
   //   return 'Form Validation';
   // }
-  failToast() {
-    const toast = this._toast.fail('邮箱或密码格式输入错误', 1000);
+  failToast(msg:string) {
+    const toast = this._toast.fail(msg, 2000);
   }
+  successToast() {
+    const toast = this._toast.success('登陆成功', 2000)
+  }
+  // bindRenderFooter() {
+  //   return (this.formErrors && this.formErrors['username']) || '';
+  // }
 
-  bindRenderFooter() {
-    return (this.formErrors && this.formErrors['username']) || '';
-  }
-
-  onClick() {
-    console.log('click');
-  }
+  // onClick() {
+  //   console.log('click');
+  // }
   
   buildForm(): void {
     this.registerForm = new FormGroup({
@@ -127,13 +143,26 @@ export class LoginComponent implements OnInit {
   switchCheck(value) {
     console.log('switch status:', value);
   }
-
+  //登录
   onSubmit() {
     if (this.beforeSubmit()) {
-      console.log(this.registerForm.value);
-      this.onReset();
+      let email=this.registerForm.value.username;
+      let userPwd=this.registerForm.value.password;
+      this.http.post(this.api.urlList.userLogin.path, {email: email, userPwd:userPwd}, res => {
+        if(res.code===200){
+           //保存token
+          localStorage.setItem("token", res.token);
+          this.successToast();
+          this.router.navigateByUrl('/index');
+        }else{
+          this.failToast('账号或密码错误');
+        }
+        console.log('结果', res);
+      }, this.httpOptions);
+      // this.onReset();
+      
     } else {
-      this.failToast();
+      this.failToast('账号或密码格式不对');
     }
   }
 
@@ -188,7 +217,7 @@ export class LoginComponent implements OnInit {
       }
     };
     this.buildForm();
-    this.renderFooter = this.bindRenderFooter.bind(this);
+    // this.renderFooter = this.bindRenderFooter.bind(this);
   }
 
 }
