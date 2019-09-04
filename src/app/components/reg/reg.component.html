@@ -5,13 +5,14 @@
     <List [renderFooter]="renderFooter">
       <InputItem [placeholder]="'请输入邮箱'" [error]="isError" [focus]="onFocus" [value]="formData.username" [clear]="true"
         formControlName="username" id="username" (onErrorClick)="inputErrorClick($event)"
-        (onChange)="inputChange($event)" [content]="'账号'">
+        (onChange)="inputChange($event)" (onBlur)="checkEmail($event)" [content]="'账号'"> 
+        <!--  -->
       </InputItem>
-      <InputItem id="password" formControlName="password" [placeholder]="'请输入密码'" [type]="'password'"
-        [(ngModel)]="formData.password" [value]="formData.password" [content]="'密码'" [clear]="true">
+      <InputItem id="password" formControlName="password"  [focus]="onFocus" [placeholder]="'请输入密码'" [type]="'password'" [value]="formData.password" [content]="'密码'" [clear]="true" (onChange)=
+      "inputPwdChange($event)" [error]="pwdError" (onErrorClick)="inputPwdErrorClick($event)">
       </InputItem>
-      <InputItem id="password" formControlName="password" [placeholder]="'请再次输入密码'" [type]="'password'"
-        [(ngModel)]="formData.password" [value]="formData.password" [content]="'确认密码'" [clear]="true">
+      <InputItem id="pepwd" formControlName="repwd" [focus]="onFocus" [placeholder]="'请再次输入密码'" [type]="'password'" [value]="formData.repwd" [content]="'确认密码'" [clear]="true" (onChange)=
+      "inputRpwdChange($event)" [error]="rpwdError" (onErrorClick)="inputRpwdErrorClick($event)">
       </InputItem>
     </List>
     <WingBlank class="btnReg">

@@ -20,9 +20,13 @@ export class apiList implements OnInit {
       'selectDiary': {
         path: '/api/diary/selectDiary',
         params: {
-         
-          userId: JSON.parse(localStorage.getItem("userInfo")).userId,
-         
+          // userId: JSON.parse(localStorage.getItem("userInfo")).userId,
+        }
+      },
+      'selectMail':{
+        path:'/api/user/selectMail',
+        params:{
+          email:''
         }
       }
     }

@@ -22,11 +22,11 @@ export class IndexComponent implements OnInit {
   unselectedTintColor: string = '#888';
   tabbarStyle: object = { height: '100%' };
   selectedIndex: number = 0;
-  // userId:number=JSON.parse(localStorage.getItem("userInfo")).userId;
+  userId:number=JSON.parse(localStorage.getItem("userInfo")).userId;
   diaryQuery:object= {
     pno: 0,
     pageSize: 5,
-    userId: JSON.parse(localStorage.getItem("userInfo")).userId,
+    // userId: JSON.parse(localStorage.getItem("userInfo")).userId,
     pageSizeOpts: [5, 10, 15]
   };
   //底部按钮选择事件

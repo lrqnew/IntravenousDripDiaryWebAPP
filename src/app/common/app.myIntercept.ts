@@ -17,7 +17,8 @@ export class InterceptorService implements HttpInterceptor {
         let authReq: any;
         // 实现第一次不拦截的方式：1. 指定接口不拦截  2. 判断本地localStorage
         let loginUrl = this.api.baseurl + this.api.urlList['userLogin']['path'];
-        if (req.url !== loginUrl) {
+        let selectMail = this.api.baseurl + this.api.urlList['selectMail']['path'];
+        if (req.url !== loginUrl&&req.url!==selectMail) {
             if (localStorage.getItem('token')) {
                 // console.log(2);
                 const token = localStorage.getItem('token');
