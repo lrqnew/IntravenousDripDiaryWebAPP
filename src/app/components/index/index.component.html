@@ -1,7 +1,9 @@
 <div class="big">
+       
     <TabBar [hidden]="hidden" [barTintColor]="'white'" [tintColor]="tintColor" [ngStyle]="tabbarStyle"
         [activeTab]="selectedIndex" [unselectedTintColor]="unselectedTintColor" [tabBarPosition]="'bottom'"
         (onPress)="tabBarTabOnPress($event)">
+           
         <TabBarItem [title]="'看日记'" [key]="1" [icon]="icon1" [selectedIcon]="icon11">
             <ng-template #icon1>
                 <div
@@ -13,38 +15,9 @@
                     style="width:22px;height: 22px;background: url('../../assets/images/krj2.png') center center / 21px 21px no-repeat;">
                 </div>
             </ng-template>
-
-            <div style="background-color: white;height: 100%;  text-align: center">
-
-                <div class="diaryList">
-                    <!--日记列表-->
-                    <List [className]="'my-list'" [renderHeader]="renderHeader1">
-                            <PullToRefresh
-                            [ngStyle]="dtPullToRefreshStyle"
-                            [direction]="state.direction"
-                            [(ngModel)]="state.refreshState"
-                            [endReachedRefresh]="state.endReachedRefresh"
-                            (onRefresh)="pullToRefresh($event)"
-                          >
-                          <ListItem *ngFor="let diary of this.state.data,let i = index"  [arrow]="'horizontal'" [thumb]='content'  (onClick)="onClick()" multipleLine>
-                               <span class="dTitle">{{diary.dTitle}} </span>
-                                <Brief [innerHTML]="diary.writeDate|date:'yyyy-MM-dd'"></Brief>
-                                <ng-template #content>
-                                        <div class="am-list-item">
-                                            <div class="diary_date">
-                                                <div class="diary_month">{{diary.writeDate|date:'MM'}}</div>
-                                                <strong>{{diary.writeDate|date:'dd'}}</strong>
-                                                <div class="calendar_year"></div>
-                                            </div>
-                                        </div>
-                                    </ng-template>
-                            </ListItem>
-                            <!-- <div  style="text-align: center; padding: 20px">{{ }}</div> -->
-                        </PullToRefresh>
-                    </List>
-                </div>
-
-            </div>
+            <ng-container *ngIf="isLookDiary">
+                    <ng-template [ngTemplateOutlet]="content"></ng-template>
+                </ng-container>
         </TabBarItem>
         <TabBarItem [title]="'写日记'" [key]="2" [icon]="icon2" [selectedIcon]="icon22">
             <ng-template #icon2>
@@ -57,14 +30,10 @@
                     style="width:22px;height: 22px;background: url('../../assets/images/xz2.png') center center / 21px 21px no-repeat;">
                 </div>
             </ng-template>
-            <div style="background-color: white; height: 100%; text-align: center">
-                <div>
-                    写日记
-                </div>
-                <!-- <ng-container>
+            <ng-container *ngIf="iswriteDiary">
                     <ng-template [ngTemplateOutlet]="content"></ng-template>
-                </ng-container> -->
-            </div>
+                </ng-container>
+
         </TabBarItem>
         <TabBarItem [title]="'我的'" [key]="3" [icon]="icon3" [selectedIcon]="icon33">
             <ng-template #icon3>
@@ -77,11 +46,13 @@
                     style="width:22px;height: 22px;background: url('https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg') center center / 21px 21px no-repeat;">
                 </div>
             </ng-template>
-            <div style="background-color: white; height: 100%; text-align: center">
-                <div style="padding-top: 60px">Clicked Friend tab， show Friend information</div>
-
-            </div>
+           
+            <ng-container *ngIf="isUserCenter">
+                    <ng-template [ngTemplateOutlet]="content"></ng-template>
+                </ng-container>
         </TabBarItem>
     </TabBar>
-    
+    <ng-template #content>
+        <router-outlet></router-outlet>
+    </ng-template>
 </div>

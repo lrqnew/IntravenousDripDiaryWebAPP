@@ -14,6 +14,9 @@ import { IndexComponent } from './components/index/index.component';
 import {apiList} from './common/app.api';
 import {httpInterceptorProviders} from 'src/app/common/http-interceptors/index';
 import { DiaryDetailsComponent } from './components/diary-details/diary-details.component';
+import { LookDiaryComponent } from './components/look-diary/look-diary.component';
+import { WriteDiaryComponent } from './components/write-diary/write-diary.component';
+import { UserCenterComponent } from './components/user-center/user-center.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +24,10 @@ import { DiaryDetailsComponent } from './components/diary-details/diary-details.
     RegComponent,
     LoginComponent,
     IndexComponent,
-    DiaryDetailsComponent
+    DiaryDetailsComponent,
+    LookDiaryComponent,
+    WriteDiaryComponent,
+    UserCenterComponent
   ],
   imports: [
     BrowserModule,
