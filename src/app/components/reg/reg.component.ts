@@ -189,7 +189,14 @@ onSubmit() {
     this._toast.fail('此邮箱已经注册,请登录', 2000);
   }
   if (this.beforeSubmit()&&!this.isEmail) {
-    console.log('okoko');
+     this.http.post(this.api.urlList.userReg.path,{email:this.formData.username,userPwd:this.formData.password},res=>{
+       if(res.code===200){
+        this._toast.success('注册成功,请登录', 2000)
+       }else{
+        this._toast.fail('注册失败', 2000);
+       }
+       console.log(res);
+     })
   }
 };
   ngOnInit() {

@@ -13,13 +13,15 @@ import { LoginComponent } from './components/login/login.component';
 import { IndexComponent } from './components/index/index.component';
 import {apiList} from './common/app.api';
 import {httpInterceptorProviders} from 'src/app/common/http-interceptors/index';
+import { DiaryDetailsComponent } from './components/diary-details/diary-details.component';
 @NgModule({
   declarations: [
     AppComponent,
     LogoComponent,
     RegComponent,
     LoginComponent,
-    IndexComponent
+    IndexComponent,
+    DiaryDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -19,18 +19,28 @@
                 <div class="diaryList">
                     <!--日记列表-->
                     <List [className]="'my-list'" [renderHeader]="renderHeader1">
-                        <ListItem [arrow]="'horizontal'" [thumb]='content' multipleLine (onClick)="onClick()">
-                            Title
-                            <Brief>subtitle</Brief>
-                        </ListItem>
-                        <ListItem [arrow]="'horizontal'" [thumb]='content' multipleLine (onClick)="onClick()">
-                                Title
-                                <Brief>subtitle</Brief>
+                            <PullToRefresh
+                            [ngStyle]="dtPullToRefreshStyle"
+                            [direction]="state.direction"
+                            [(ngModel)]="state.refreshState"
+                            [endReachedRefresh]="state.endReachedRefresh"
+                            (onRefresh)="pullToRefresh($event)"
+                          >
+                          <ListItem *ngFor="let diary of this.state.data,let i = index"  [arrow]="'horizontal'" [thumb]='content'  (onClick)="onClick()" multipleLine>
+                               <span class="dTitle">{{diary.dTitle}} </span>
+                                <Brief [innerHTML]="diary.writeDate|date:'yyyy-MM-dd'"></Brief>
+                                <ng-template #content>
+                                        <div class="am-list-item">
+                                            <div class="diary_date">
+                                                <div class="diary_month">{{diary.writeDate|date:'MM'}}</div>
+                                                <strong>{{diary.writeDate|date:'dd'}}</strong>
+                                                <div class="calendar_year"></div>
+                                            </div>
+                                        </div>
+                                    </ng-template>
                             </ListItem>
-                            <ListItem [arrow]="'horizontal'" [thumb]='content' multipleLine (onClick)="onClick()">
-                                    Title
-                                    <Brief>subtitle</Brief>
-                                </ListItem>
+                            <!-- <div  style="text-align: center; padding: 20px">{{ }}</div> -->
+                        </PullToRefresh>
                     </List>
                 </div>
 
@@ -73,13 +83,5 @@
             </div>
         </TabBarItem>
     </TabBar>
-    <ng-template #content>
-        <div class="am-list-item">
-            <div class="diary_date">
-                <div class="diary_month">8月</div>
-                <strong>01</strong>
-                <div class="calendar_year">2019</div>
-            </div>
-        </div>
-    </ng-template>
+    
 </div>

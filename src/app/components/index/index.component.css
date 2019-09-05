@@ -45,3 +45,6 @@
 .am-list-item {
     padding: 3px;
 }
+.diaryList .dTitle{
+    font-size: 16px;
+}
