@@ -7,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
 export class apiList implements OnInit {
   baseurl: any = '';
   urlList: any = {};
-  constructor() { 
+  constructor() {
     this.baseurl = 'http://localhost:3000';
-    this.urlList =  {
+    this.urlList = {
       'userLogin': {
-        path:'/api/user/login',
+        path: '/api/user/login',
         params: {
           email: '',
           userPwd: ''
@@ -25,27 +25,37 @@ export class apiList implements OnInit {
           userId: Number,
         }
       },
-      'selectMail':{
-        path:'/api/user/selectMail',
-        params:{
-          email:''
+      'selectMail': {
+        path: '/api/user/selectMail',
+        params: {
+          email: ''
         }
       },
-      'userReg':{
-         path:'/api/user/reg',
-         params:{
-          email:'',
-          userPwd:''
-         }
+      'userReg': {
+        path: '/api/user/reg',
+        params: {
+          email: '',
+          userPwd: ''
+        }
       },
-      'diaryDetails':{
-        path:'/api/diary/diaryDetails',
-        params:{
-          dId:'',
-          userId:''
+      'diaryDetails': {
+        path: '/api/diary/diaryDetails',
+        params: {
+          dId: '',
+          userId: ''
+        }
+      },
+      'writeDiary': {
+        path: '/api/diary/writeDiary',
+        params: {
+          dContent: "", //富文本内容
+          dTitle: new Date().toLocaleDateString() + "日记", //日记标题
+          dTag: [], //日记标签
+          privacy: "0",
+          userId: ''
         }
       }
     }
   }
-  ngOnInit() {}
+  ngOnInit() { }
 }

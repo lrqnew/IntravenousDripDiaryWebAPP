@@ -6,3 +6,18 @@ margin-right: 4px;
 background: #04be02;
 color:#fff;
 }
+.diary_post .weui_cells_title {
+    position: relative;
+}
+.cells_title {
+    margin-top: .77em;
+    margin-bottom: .3em;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #888;
+    font-size: 14px;
+}
+.am-list-item{
+    padding-left: 0 !important;
+   
+}

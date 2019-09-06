@@ -1,10 +1,32 @@
-<Navbar [icon]="icon"  [rightContent]="rightContent" mode="light" style="background: #f7f7fa;" (onRightClick)="onLeftClick()" >
-    <span class="wTitle">写日记</span> 
+<Navbar [icon]="icon" [rightContent]="rightContent" mode="light" style="background: #f7f7fa;"
+  (onRightClick)="onLeftClick()">
+  <span class="wTitle">写日记</span>
 </Navbar>
 <ng-template #icon>
-        <Icon [type]="'left'" class="left"></Icon>
-      </ng-template>
+  <Icon [type]="'left'" class="left"></Icon>
+</ng-template>
 
 <ng-template #rightContent>
-        <div Button class="btn"  [inline]="true" [size]="'small'">发布</div>
+  <div Button class="btn" [inline]="true" [size]="'small'" (onClick)="release()">发布</div>
 </ng-template>
+<div class="diary_post" style="font-size:14px;">
+    <div class="cells_title">
+      <span>2019年09月06日</span>
+        <InputItem  [content]="'日记标题'" [placeholder]="'请输入标题'" [(ngModel)]="dTitle">
+        </InputItem>
+
+      <ListItem [extra]="_switch"><span style="color: #888;font-size: 14px">是否公开</span></ListItem>
+      <ng-template #_switch>
+        <Switch class="oneui-mobile" [checked]="true" (onChange)="switchCheck($event)"></Switch>
+      </ng-template>
+      <div class="am-demo-page">
+        <div class="am-list" style="margin:0;">
+          <div class="am-list" style="margin:0;">
+            <div class="am-list-body" >
+              <TextareaItem  [rows]="14" [count]="99999999" [placeholder]="'请在此处写下日记内容'" [(ngModel)]="dContent"></TextareaItem>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
