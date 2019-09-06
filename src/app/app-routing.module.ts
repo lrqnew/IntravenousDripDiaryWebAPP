@@ -15,7 +15,7 @@ const routes: Routes = [
   {
     path: 'index', component: IndexComponent,
     children: [{
-      path: 'diaryDetalis',
+      path: 'diaryDetalis/:id',
       component:DiaryDetailsComponent
     },
     {

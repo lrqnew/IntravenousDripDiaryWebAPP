@@ -1,1 +1,10 @@
-<p>write-diary works!</p>
+<Navbar [icon]="icon"  [rightContent]="rightContent" mode="light" style="background: #f7f7fa;" (onRightClick)="onLeftClick()" >
+    <span class="wTitle">写日记</span> 
+</Navbar>
+<ng-template #icon>
+        <Icon [type]="'left'" class="left"></Icon>
+      </ng-template>
+
+<ng-template #rightContent>
+        <div Button class="btn"  [inline]="true" [size]="'small'">发布</div>
+</ng-template>

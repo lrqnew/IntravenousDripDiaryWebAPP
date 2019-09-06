@@ -10,7 +10,7 @@
                     [endReachedRefresh]="state.endReachedRefresh"
                     (onRefresh)="pullToRefresh($event)"
                   >
-                  <ListItem *ngFor="let diary of this.state.data,let i = index"  [arrow]="'horizontal'" [thumb]='content'  (onClick)="onClick()" multipleLine>
+                  <ListItem *ngFor="let diary of this.state.data[this.state.data.length-1],let i = index"  [arrow]="'horizontal'" [thumb]='content'  (onClick)="onClick(diary.dId)" multipleLine>
                        <span class="dTitle">{{diary.dTitle}} </span>
                         <Brief ></Brief>
                         <ng-template #content>
@@ -29,3 +29,4 @@
         </div>
 
     </div>
+    

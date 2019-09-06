@@ -56,7 +56,7 @@ export class IndexComponent implements OnInit {
   }
   
   ngOnInit() {
-  
+    this.router.navigateByUrl('/index/lookDiary');
     // this.addItems(0);
   }
 }

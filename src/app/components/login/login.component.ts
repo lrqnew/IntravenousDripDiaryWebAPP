@@ -140,7 +140,6 @@ export class LoginComponent implements OnInit {
         }else{
           this.failToast('账号或密码错误');
         }
-        console.log('结果', res);
       }, this.httpOptions);
       // this.onReset();
       

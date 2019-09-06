@@ -37,6 +37,13 @@ export class apiList implements OnInit {
           email:'',
           userPwd:''
          }
+      },
+      'diaryDetails':{
+        path:'/api/diary/diaryDetails',
+        params:{
+          dId:'',
+          userId:''
+        }
       }
     }
   }

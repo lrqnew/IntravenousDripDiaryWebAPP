@@ -119,10 +119,8 @@ export class RegComponent implements OnInit {
     var flag:boolean;
     const form = this.registerForm;
     for (const field in this.formErrors) {
-      console.log(field);
       this.formErrors[field] = '';
       const control = form.get(field);
-      console.log(control.valid);
       if (control && !control.valid) {
         const messages = this.validationMessage[field];
         for (const key in control.errors) {
@@ -175,7 +173,6 @@ export class RegComponent implements OnInit {
   isEmail=false;
   checkEmail(e){
     this.http.get(this.api.urlList.selectMail.path,{email:e},res=>{
-      console.log(res);
       if(res.code===402){
         this.isError = true;
         this.isEmail=true;
@@ -195,7 +192,6 @@ onSubmit() {
        }else{
         this._toast.fail('注册失败', 2000);
        }
-       console.log(res);
      })
   }
 };
