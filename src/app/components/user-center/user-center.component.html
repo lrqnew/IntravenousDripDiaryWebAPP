@@ -1,1 +1,44 @@
-<p>user-center works!</p>
+<div class="user_head_wrap">
+  <!-- <div class="settings"><span class="fa fa-cog"><i class="iconfont">&#xe78e;</i></span> </div> -->
+  <div class="user_avatar">
+    <img src="../../../assets/images/logo.png" class="headicon">
+    <p>77</p>
+
+  </div>
+
+  <div class="user_diary_stats">
+    <div class="weui-row weui-no-gutter">
+      <div class="weui-col-33"><strong>5</strong> <span>篇</span>
+        <p>记录日记</p>
+      </div>
+      <div class="weui-col-33"><strong>5,084</strong> <span>个</span>
+        <p>写下文字</p>
+      </div>
+      <div class="weui-col-33"><strong>124</strong> <span>秒</span>
+        <p>使用时间</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<List [className]="'my-list'" [renderHeader]="renderHeader">
+</List>
+<List [className]="'my-list'" [renderHeader]="renderHeader1">
+  <ListItem [arrow]="'horizontal'" [thumb]='modify' multipleLine (onClick)="onClick()"><span class="fontIn">修改资料</span></ListItem>
+  <ListItem [arrow]="'horizontal'" [thumb]='feedback' multipleLine (onClick)="onClick()"><span class="fontIn">反馈信息</span></ListItem>
+  <ListItem [arrow]="'horizontal'" [thumb]='about' multipleLine (onClick)="onClick()"><span class="fontIn">关于</span></ListItem>
+  <ListItem [arrow]="'horizontal'" [thumb]='exit' multipleLine (onClick)="onClick()"><span class="fontIn">退出登录</span></ListItem>
+
+  <ng-template #feedback>
+    <i class="iconfont">&#xe7de;</i>
+  </ng-template>
+  <ng-template #about>
+    <i class="iconfont">&#xe77e;</i>
+  </ng-template>
+  <ng-template #modify>
+    <i class="iconfont">&#xe791;</i>
+  </ng-template>
+  <ng-template #exit>
+    <i class="iconfont">&#xe77d;</i>
+  </ng-template>

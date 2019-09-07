@@ -1,0 +1,112 @@
+.user_head_wrap {
+  height: 250px;
+  background: #88e4ec;
+  background-image: url(/assets/images/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.user_head_wrap .settings {
+  position: absolute;
+  top: 15px;
+  right: 0px;
+  width: 32px;
+  height: 32px;
+  color: #ecf0f1;
+}
+
+@font-face {
+    font-family: 'iconfont';  /* project id 1394549 */
+    src: url('//at.alicdn.com/t/font_1394549_wyph5qmkg9a.eot');
+    src: url('//at.alicdn.com/t/font_1394549_wyph5qmkg9a.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1394549_wyph5qmkg9a.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1394549_wyph5qmkg9a.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1394549_wyph5qmkg9a.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1394549_wyph5qmkg9a.svg#iconfont') format('svg');
+  }
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.user_head_wrap .user_avatar {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 36px;
+    text-align: center;
+}
+.user_head_wrap .user_avatar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+}
+.user_head_wrap .user_avatar p {
+    color: #F2F2F2;
+    font-weight: bold;
+    text-shadow: #b4bcc2;
+}
+.user_head_wrap .user_diary_stats {
+    width: 100%;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.7);
+    bottom: 0;
+    position: absolute;
+    color: #ccc;
+    text-align: center;
+    padding-top: 5px;
+    font-size: 20px;
+    line-height: 1.2;
+}
+.weui-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-lines: multiple;
+    -moz-box-lines: multiple;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+}
+.weui-row.weui-no-gutter .weui-col-33 {
+    width: 33.333333333333336%;
+}
+.weui-row .weui-col-33 {
+    width: 33.333333333333336%;
+    width: calc((100% - 15px*2) / 3);
+}
+.weui-row > [class*="col-"] {
+    box-sizing: border-box;
+}
+.weui-row div {
+    border-right: 1px solid #666;
+}
+.weui-row div:last-child {
+    border-right: none;
+}
+.user_head_wrap .user_diary_stats strong {
+    color: #FFFFFF;
+}
+.user_head_wrap .user_diary_stats span, .user_head_wrap .user_diary_stats p {
+    font-size: 10px;
+}
+.user_head_wrap .user_diary_stats p {
+    line-height: 1.5;
+}
+.fontIn{
+    font-size: 14px;
+}

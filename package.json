@@ -22,6 +22,7 @@
     "ng-zorro-antd-mobile": "^1.0.0-beta.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
+    "viser-ng": "^2.4.5",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
