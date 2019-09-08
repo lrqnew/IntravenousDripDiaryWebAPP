@@ -49,6 +49,7 @@ export class WriteDiaryComponent implements OnInit {
       }
     })
   }
+
   ngOnInit() {
   }
 

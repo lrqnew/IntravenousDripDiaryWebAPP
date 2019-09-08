@@ -9,7 +9,8 @@ import { Router,ActivatedRoute  } from '@angular/router';
   providers: [selfHttp, apiList]
 })
 export class DiaryDetailsComponent implements OnInit {
-  diaryInfo:{};
+  diaryInfo:object={
+  }
   constructor(
     public http: selfHttp,
     public api: apiList,
@@ -23,11 +24,8 @@ export class DiaryDetailsComponent implements OnInit {
   userId=JSON.parse(localStorage.getItem("userInfo")).userId;
   diaryDetails() {
     let dId=this.Active.snapshot.params['id'];
-    console.log(dId);
     this.http.get(this.api.urlList.diaryDetails.path,{ dId:dId,userId:this.userId},res=>{
-      // console.log(res);
       this.diaryInfo=res[0];
-      console.log(this.diaryInfo);
     })
   };
 

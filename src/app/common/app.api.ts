@@ -48,10 +48,16 @@ export class apiList implements OnInit {
       'writeDiary': {
         path: '/api/diary/writeDiary',
         params: {
-          dContent: "", //富文本内容
+          dContent: "", 
           dTitle: new Date().toLocaleDateString() + "日记", //日记标题
           dTag: [], //日记标签
           privacy: "0",
+          userId: ''
+        }
+      },
+      'totalDinfo':{
+        path:'/api/diary/totalDinfo',
+        params: {
           userId: ''
         }
       }

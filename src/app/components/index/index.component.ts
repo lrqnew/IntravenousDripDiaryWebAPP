@@ -54,7 +54,7 @@ export class IndexComponent implements OnInit {
     }
     this.selectedIndex = pressParam.index;
   }
-  
+
   ngOnInit() {
     this.router.navigateByUrl('/index/lookDiary');
     // this.addItems(0);

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {GuardServiceService} from './service/guard-service.service'
 import { LoginComponent } from './components/login/login.component';
 import { RegComponent } from './components/reg/reg.component';
 import { IndexComponent } from './components/index/index.component';
@@ -16,18 +17,22 @@ const routes: Routes = [
     path: 'index', component: IndexComponent,
     children: [{
       path: 'diaryDetalis/:id',
-      component:DiaryDetailsComponent
+      component:DiaryDetailsComponent,
+      canActivate:[GuardServiceService]
     },
     {
       path: 'writeDiary',
-      component:WriteDiaryComponent
+      component:WriteDiaryComponent,
+      canActivate:[GuardServiceService]
     },
     {
       path: 'lookDiary',
-      component:LookDiaryComponent
+      component:LookDiaryComponent,
+      canActivate:[GuardServiceService]
     },{
       path: 'userCenter',
-      component:UserCenterComponent
+      component:UserCenterComponent,
+      canActivate:[GuardServiceService]
     }
 
     ]

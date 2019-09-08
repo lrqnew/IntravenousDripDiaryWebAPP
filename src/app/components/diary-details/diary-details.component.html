@@ -1,12 +1,12 @@
 <Navbar [icon]="icon" style="background: #f7f7fa" (onLeftClick)="onLeftClick()">
-    <span class="wTitle">
-        {{diaryInfo.writeDate|date:'yyyy年MM月dd日'}}
+    <span class="wTitle" >
+      {{diaryInfo.writeDate|date:'yyyy年MM月dd日'}}
     </span>
 </Navbar>
 <ng-template #icon>
     <Icon [type]="'left'" class="left"></Icon>
 </ng-template>
-<div class="diary_content" [innerHTML]="diaryInfo.dContent">
+<div class="diary_content" [innerHTML]="diaryInfo.dContent==null?'':diaryInfo.dContent">
 
 </div>
 <!-- <ng-template #rightContent>

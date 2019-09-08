@@ -27,8 +27,10 @@ import { UserCenterComponent } from './components/user-center/user-center.compon
     DiaryDetailsComponent,
     LookDiaryComponent,
     WriteDiaryComponent,
-    UserCenterComponent
+    UserCenterComponent,
+    
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -36,7 +38,8 @@ import { UserCenterComponent } from './components/user-center/user-center.compon
     FormsModule,
     HttpClientModule,
     NgZorroAntdMobileModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
   providers: [httpInterceptorProviders,apiList],
   bootstrap: [AppComponent]
