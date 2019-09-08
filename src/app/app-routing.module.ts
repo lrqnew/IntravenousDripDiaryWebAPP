@@ -7,7 +7,8 @@ import { IndexComponent } from './components/index/index.component';
 import {DiaryDetailsComponent} from './components/diary-details/diary-details.component';
 import {LookDiaryComponent} from './components/look-diary/look-diary.component';
 import {WriteDiaryComponent} from './components/write-diary/write-diary.component';
-import {UserCenterComponent} from './components/user-center/user-center.component'
+import {UserCenterComponent} from './components/user-center/user-center.component';
+import {AboutComponent} from './components/about/about.component'
 import { from } from 'rxjs';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },//默认路径
@@ -33,6 +34,9 @@ const routes: Routes = [
       path: 'userCenter',
       component:UserCenterComponent,
       canActivate:[GuardServiceService]
+    },{
+      path:'about',
+      component:AboutComponent
     }
 
     ]

@@ -1,0 +1,45 @@
+<Navbar [icon]="icon" [rightContent]="rightContent" mode="light" style="background: #f7f7fa;"
+  (onLeftClick)="onLeftClick()">
+  <span class="wTitle">关于点滴日记</span>
+</Navbar>
+<ng-template #icon>
+  <Icon [type]="'left'" class="left"></Icon>
+</ng-template>
+<div class="aboutUsWrap">
+  <div class="container">
+    <div class>
+      <div class="col-md-4 col-xs-12 col-lg-4 col-md-offset-1 col-lg-offset-1 about">
+        <!-- 关于我们 -->
+        <div class="intro">
+          <div class="content">
+            <p>
+              <strong>什么是点滴日记？</strong>
+            </p>
+            <p>
+              它是一个专门用来记录个人日记的网络应用。
+              <br />
+            </p>
+            <p>
+              <strong>TA能做什么？</strong>
+            </p>
+            <p>
+              TA帮你记录每天的成长历程；善用TA，TA就是你记忆的一部分。
+              <br />
+            </p>
+            <p>
+              <strong>TA不能做什么？</strong>
+            </p>
+            <p>TA除了帮你记录写日记，什么都做不了。</p>
+            <p>
+              <strong>我为什么要用TA?</strong>
+            </p>
+            <p>TA简单易用，永久免费；如果你想为自己的过去留下一些内容的话，也许TA很适合你。</p>
+            <p>
+              <br />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

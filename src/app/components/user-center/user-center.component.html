@@ -43,7 +43,7 @@
   </ListItem>
   <ListItem [arrow]="'horizontal'" [thumb]='feedback' multipleLine (onClick)="onClick()"><span
       class="fontIn">反馈信息</span></ListItem>
-  <ListItem [arrow]="'horizontal'" [thumb]='about' multipleLine (onClick)="showShareActionSheet()"><span
+  <ListItem [arrow]="'horizontal'" [thumb]='about' multipleLine [routerLink]="['/index/about']" routerLinkActive="router-link-active" ><span
       class="fontIn">关于</span></ListItem>
   <ListItem [arrow]="'horizontal'" [thumb]='exit' multipleLine (onClick)="onClick()"><span class="fontIn">退出登录</span>
   </ListItem>

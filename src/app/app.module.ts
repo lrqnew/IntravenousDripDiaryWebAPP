@@ -17,6 +17,8 @@ import { DiaryDetailsComponent } from './components/diary-details/diary-details.
 import { LookDiaryComponent } from './components/look-diary/look-diary.component';
 import { WriteDiaryComponent } from './components/write-diary/write-diary.component';
 import { UserCenterComponent } from './components/user-center/user-center.component';
+import { AboutComponent } from './components/about/about.component';
+import { FeedbackComponent } from './components/feedback/feedback.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +30,8 @@ import { UserCenterComponent } from './components/user-center/user-center.compon
     LookDiaryComponent,
     WriteDiaryComponent,
     UserCenterComponent,
+    AboutComponent,
+    FeedbackComponent,
     
   ],
 
