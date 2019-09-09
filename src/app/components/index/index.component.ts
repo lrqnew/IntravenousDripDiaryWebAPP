@@ -21,10 +21,10 @@ export class IndexComponent implements OnInit {
   tintColor: string = '#108ee9';
   unselectedTintColor: string = '#888';
   tabbarStyle: object = { height: '100%' };
-  selectedIndex: number = 0;
-  isLookDiary=true;
+  selectedIndex: number = 2;
+  isLookDiary=false;
   iswriteDiary=false;
-  isUserCenter=false;
+  isUserCenter=true;
   //日记信息
   diaryInfo:{
      diaryYear:'',
@@ -33,30 +33,33 @@ export class IndexComponent implements OnInit {
   }
   //底部按钮选择事件
   tabBarTabOnPress(pressParam: any) {
-    console.log('onPress Params: ', pressParam);
-    if(pressParam.index===0){
-      this.router.navigateByUrl('/index/lookDiary');
+    if(pressParam.index===2){
       this.isLookDiary=true;
       this.iswriteDiary=false;
       this.isUserCenter=false;
+      this.router.navigateByUrl('/index/lookDiary');
     }
     if(pressParam.index===1){
-      this.router.navigateByUrl('/index/writeDiary');
+
       this.isLookDiary=false;
       this.iswriteDiary=true;
       this.isUserCenter=false;
+      this.router.navigateByUrl('/index/writeDiary');
     }
-    if(pressParam.index===2){
-      this.router.navigateByUrl('/index/userCenter');
+    if(pressParam.index===0){
+     
       this.isLookDiary=false;
       this.iswriteDiary=false;
       this.isUserCenter=true;
+      this.router.navigateByUrl('/index/userCenter');
     }
     this.selectedIndex = pressParam.index;
   }
 
   ngOnInit() {
-    this.router.navigateByUrl('/index/lookDiary');
+     this.router.navigateByUrl('/index/userCenter');
     // this.addItems(0);
+ 
   }
+  
 }

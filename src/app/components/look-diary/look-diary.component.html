@@ -1,30 +1,29 @@
 <div style="background-color: white;height: 100%;  text-align: center">
-        <div class="diaryList">
-            <!--日记列表-->
-            <List [className]="'my-list'" [renderHeader]="renderHeader1">
-                    <PullToRefresh
-                    [ngStyle]="dtPullToRefreshStyle"
-                    [direction]="state.direction"
-                    [(ngModel)]="state.refreshState"
-                    [endReachedRefresh]="state.endReachedRefresh"
-                    (onRefresh)="pullToRefresh($event)"
-                  >
-                  <ListItem *ngFor="let diary of this.state.data[this.state.data.length-1],let i = index"  [arrow]="'horizontal'" [thumb]='content'  (onClick)="onClick(diary.dId)" multipleLine>
-                       <span class="dTitle">{{diary.dTitle}} </span>
-                        <Brief ></Brief>
-                        <ng-template #content>
-                                <div class="am-list-item">
-                                    <div class="diary_date">
-                                        <div class="diary_month">{{diary.writeDate|date:'MM'}}</div>
-                                        <strong>{{diary.writeDate|date:'dd'}}</strong>
-                                        <div class="calendar_year">{{diary.writeDate|date:'yyyy'}}</div>
-                                    </div>
+    <div class="diaryList">
+        <!--日记列表-->
+        <List [className]="'my-list'" [renderHeader]="renderHeader1">
+                <PullToRefresh
+                [ngStyle]="dtPullToRefreshStyle"
+                [direction]="state.direction"
+                [(ngModel)]="state.refreshState"
+                [endReachedRefresh]="state.endReachedRefresh"
+                (onRefresh)="pullToRefresh($event)"
+              >
+              <ListItem *ngFor="let diary of this.state.data[this.state.data.length-1],let i = index"  [arrow]="'horizontal'" [thumb]='content'  (onClick)="onClick(diary.dId)" multipleLine>
+                   <span class="dTitle">{{diary.dTitle}} </span>
+                    <Brief ></Brief>
+                    <ng-template #content>
+                            <div class="am-list-item">
+                                <div class="diary_date">
+                                    <div class="diary_month">{{diary.writeDate|date:'MM'}}</div>
+                                    <strong>{{diary.writeDate|date:'dd'}}</strong>
+                                    <div class="calendar_year">{{diary.writeDate|date:'yyyy'}}</div>
                                 </div>
-                            </ng-template>
-                    </ListItem>
-                    <!-- <div  style="text-align: center; padding: 20px">{{ }}</div> -->
-                </PullToRefresh>
-            </List>
-        </div>
+                            </div>
+                        </ng-template>
+                </ListItem>
+                <!-- <div  style="text-align: center; padding: 20px">{{ }}</div> -->
+            </PullToRefresh>
+        </List>
     </div>
-    
+</div>

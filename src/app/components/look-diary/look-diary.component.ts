@@ -58,7 +58,7 @@ export class LookDiaryComponent implements OnInit {
       } else {
         if (this.page < 9) {
           // this.page++;
-          let pageSize=this.pageLimit+10;
+          let pageSize=this.pageLimit+=10;
           this.selectDiary(pageSize);
         }
       }
@@ -71,5 +71,5 @@ export class LookDiaryComponent implements OnInit {
   ngOnInit() {
     this.selectDiary(10);
   }
-
+ 
 }

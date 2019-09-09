@@ -2,8 +2,18 @@
 .left {
   color: #666666;
 }
-.btn{
-    margin-right: 4px;
-    background: #04be02;
-    color:#fff;
-    }
+
+.btn {
+  margin-right: 4px;
+  background: #04be02;
+  color: #fff;
+}
+
+.date-picker-list .am-list-item .am-list-line .am-list-extra {
+  flex-basis: initial;
+}
+
+.birthday{
+  font-size: 14px;
+  color:#888 !important;
+}

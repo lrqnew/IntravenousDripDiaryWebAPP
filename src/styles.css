@@ -3,7 +3,7 @@ html,body{
     background-color: #fff;
     height: 100%;
 }
-.am-list-item .am-input-label.am-input-label-5{
+.am-list-item .am-input-label.am-input-label-5,.am-textarea-label{
     font-size: 14px ;
     color:#888;
 }

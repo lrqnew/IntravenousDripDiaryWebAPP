@@ -6,5 +6,35 @@
   <Icon [type]="'left'" class="left"></Icon>
 </ng-template>
 <ng-template #rightContent>
-        <div Button class="btn" [inline]="true" [size]="'small'" (onClick)="release()">完成</div>
-      </ng-template>
+  <div Button class="btn" [inline]="true" [size]="'small'" (onClick)="release()">完成</div>
+</ng-template>
+<div class="diary_post" style="font-size:14px;">
+  <div class="cells_title">
+      <InputItem  [content]="'昵称'" [placeholder]="'请输入昵称'" [(ngModel)]="dTitle">
+      </InputItem>
+      <List [className]="'date-picker-list'">
+        <ListItem DatePicker
+         [extra]="currentDateFormat(value, 'yyyy-mm-dd')"
+          [arrow]="'horizontal'"
+          [mode]="'date'"
+          [(ngModel)]="value"
+          (onOk)="onOk($event)"
+        >
+          <span class="birthday">生日</span>
+         
+        </ListItem>
+      </List>
+      <InputItem  [content]="'性别'" [placeholder]="'请输入标题'" [(ngModel)]="dTitle">
+      </InputItem>
+    <div class="am-demo-page">
+      <div class="am-list" style="margin:0;">
+        <div class="am-list" style="margin:0;">
+          <div class="am-list-body" >
+            <TextareaItem  [title]="'签名'" [rows]="5" [count]="99999999" [placeholder]="'请在此处写下日记内容'" [(ngModel)]="dContent"></TextareaItem>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+

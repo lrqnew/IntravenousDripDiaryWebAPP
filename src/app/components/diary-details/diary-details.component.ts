@@ -8,7 +8,7 @@ import { Router,ActivatedRoute  } from '@angular/router';
   styleUrls: ['./diary-details.component.css'],
 })
 export class DiaryDetailsComponent implements OnInit {
-  diaryInfo:Object;
+  diaryInfo={};
   constructor(
     public http: SelfHttp,
     public api: apiList,
