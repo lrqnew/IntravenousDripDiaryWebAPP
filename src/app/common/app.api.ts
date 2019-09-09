@@ -60,6 +60,12 @@ export class apiList implements OnInit {
         params: {
           userId: ''
         }
+      },
+      'pushAdvice':{
+        path:'/api/advice/pushAdvice',
+        params:{
+          adContent:''
+        }
       }
     }
   }
