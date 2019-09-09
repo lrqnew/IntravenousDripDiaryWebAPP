@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { selfHttp } from 'src/app/common/app.service';
+import { SelfHttp } from 'src/app/common/app.service';
 import {apiList} from '../../common/app.api'; 
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css'],
-  providers:[selfHttp, apiList]
+
 })
 export class IndexComponent implements OnInit {
   
   // dtPullToRefreshStyle = { height: this.state.height + 'px' };
   constructor(
-    public http: selfHttp, 
+    public http: SelfHttp, 
     public api: apiList,
     public router:Router
   ) { 

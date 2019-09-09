@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { selfHttp } from 'src/app/common/app.service';
+import { SelfHttp } from 'src/app/common/app.service';
 import { apiList } from '../../common/app.api';
 import { Router } from '@angular/router';
 import { ActionSheetService, ToastService } from 'ng-zorro-antd-mobile';
@@ -8,14 +8,14 @@ import { ActionSheetService, ToastService } from 'ng-zorro-antd-mobile';
   selector: 'app-user-center',
   templateUrl: './user-center.component.html',
   styleUrls: ['./user-center.component.css'],
-  providers: [selfHttp, apiList],
+
  
  
 })
 export class UserCenterComponent implements OnInit {
 
   constructor(
-    public http: selfHttp,
+    public http: SelfHttp,
     public api: apiList,
     public router: Router,
 

@@ -39,9 +39,9 @@
 <List [className]="'my-list'" [renderHeader]="renderHeader">
 </List>
 <List [className]="'my-list'" [renderHeader]="renderHeader1">
-  <ListItem [arrow]="'horizontal'" [thumb]='modify' multipleLine (onClick)="onClick()"><span class="fontIn">修改资料</span>
+  <ListItem [arrow]="'horizontal'" [thumb]='modify' multipleLine [routerLink]="['/index/modify']" routerLinkActive="router-link-active" ><span class="fontIn">修改资料</span>
   </ListItem>
-  <ListItem [arrow]="'horizontal'" [thumb]='feedback' multipleLine (onClick)="onClick()"><span
+  <ListItem [arrow]="'horizontal'" [thumb]='feedback' multipleLine [routerLink]="['/index/feed']" routerLinkActive="router-link-active" ><span
       class="fontIn">反馈信息</span></ListItem>
   <ListItem [arrow]="'horizontal'" [thumb]='about' multipleLine [routerLink]="['/index/about']" routerLinkActive="router-link-active" ><span
       class="fontIn">关于</span></ListItem>

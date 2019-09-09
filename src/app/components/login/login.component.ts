@@ -3,7 +3,7 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 import {ValidateBase} from '../../../ValidatorBase'
 import { ToastService } from 'ng-zorro-antd-mobile';
 import { HttpHeaders } from '@angular/common/http';
-import { selfHttp } from 'src/app/common/app.service';
+import { SelfHttp } from 'src/app/common/app.service';
 import {apiList} from '../../common/app.api'; 
 import { Router } from '@angular/router';
 @Component({
@@ -17,13 +17,13 @@ import { Router } from '@angular/router';
       }
     `
   ],
-  providers:[selfHttp, apiList]
+
 })
 export class LoginComponent implements OnInit {
  
   constructor(
     private _toast: ToastService,
-    public http: selfHttp, 
+    public http: SelfHttp, 
     public api: apiList,
     public router:Router
   ) { }

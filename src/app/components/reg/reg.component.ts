@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastService } from 'ng-zorro-antd-mobile';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { ValidateBase } from '../../../ValidatorBase';
-import { selfHttp } from 'src/app/common/app.service';
+import { SelfHttp } from 'src/app/common/app.service';
 import {apiList} from '../../common/app.api'; 
 @Component({
   selector: 'app-reg',
@@ -15,13 +15,13 @@ import {apiList} from '../../common/app.api';
       }
     `
   ],
-  providers:[selfHttp, apiList]
+
 })
 export class RegComponent implements OnInit {
 
   constructor(
     private _toast: ToastService,
-    public http: selfHttp, 
+    public http: SelfHttp, 
     public api: apiList,
   ) { }
   isError: boolean = false;

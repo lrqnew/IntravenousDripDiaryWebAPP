@@ -19,7 +19,9 @@ import { WriteDiaryComponent } from './components/write-diary/write-diary.compon
 import { UserCenterComponent } from './components/user-center/user-center.component';
 import { AboutComponent } from './components/about/about.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
-@NgModule({
+import { ModifyComponent } from './components/modify/modify.component';
+import {SelfHttp} from './common/app.service'
+ @NgModule({
   declarations: [
     AppComponent,
     LogoComponent,
@@ -32,7 +34,8 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
     UserCenterComponent,
     AboutComponent,
     FeedbackComponent,
-    
+    ModifyComponent,
+    SelfHttp
   ],
 
   imports: [
@@ -45,7 +48,9 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
     ReactiveFormsModule,
     
   ],
-  providers: [httpInterceptorProviders,apiList],
+  providers: [httpInterceptorProviders,apiList,SelfHttp],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  
+}

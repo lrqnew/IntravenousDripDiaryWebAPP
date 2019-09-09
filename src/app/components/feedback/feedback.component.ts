@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class FeedbackComponent implements OnInit {
 
   constructor() { }
-
+  onLeftClick() {
+    history.go(-1);
+  };
   ngOnInit() {
   }
 

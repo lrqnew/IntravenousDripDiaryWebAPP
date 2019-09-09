@@ -1,18 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { selfHttp } from 'src/app/common/app.service';
+import { SelfHttp } from 'src/app/common/app.service';
 import { apiList } from '../../common/app.api';
 import { Router,ActivatedRoute  } from '@angular/router';
 @Component({
   selector: 'app-diary-details',
   templateUrl: './diary-details.component.html',
   styleUrls: ['./diary-details.component.css'],
-  providers: [selfHttp, apiList]
 })
 export class DiaryDetailsComponent implements OnInit {
-  diaryInfo:object={
-  }
+  diaryInfo:Object;
   constructor(
-    public http: selfHttp,
+    public http: SelfHttp,
     public api: apiList,
     public router: Router,
     public Active: ActivatedRoute

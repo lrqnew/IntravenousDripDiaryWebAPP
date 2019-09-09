@@ -1,13 +1,14 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, Injectable,OnInit } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import {apiList} from './app.api';
 
 @Component({
-  providers:[apiList]
+  providers:[apiList],
+  template: ``
 })
 
 @Injectable()
-export class selfHttp {
+export  class SelfHttp   {
   public restServer;
   public http;
   status = {
@@ -34,7 +35,7 @@ export class selfHttp {
   };
 
   constructor(Http: HttpClient, public api: apiList) {
-    console.log(this.api.baseurl);
+    // console.log(this.api.baseurl);
     this.http = Http;
     this.restServer = this.api.baseurl;
   }
@@ -54,7 +55,7 @@ export class selfHttp {
       .subscribe(data => {
         cb(data);
       },(err)=>{
-        console.log(this.status[err.status]);
+        // console.log(this.status[err.status]);
       });
   }
 
@@ -65,8 +66,8 @@ export class selfHttp {
       .subscribe(res => {
         cb(res);
       }, (err) => {
-        console.log(err);
-        console.log(this.status[err.status]);
+        // console.log(err);
+        // console.log(this.status[err.status]);
        }, () => {
          //...请求完成
        }
@@ -99,12 +100,13 @@ export class selfHttp {
       .subscribe(data => {
         cb(data);
       },(err)=>{
-        console.log(this.status[err.status]);
+        // console.log(this.status[err.status]);
       });
   }
   public msg(url) {
-    console.log('/*')
-    console.log(' **开始请求',url)
-    console.log(' */')
+    // console.log('/*')
+    // console.log(' **开始请求',url)
+    // console.log(' */')
   }
+
 }

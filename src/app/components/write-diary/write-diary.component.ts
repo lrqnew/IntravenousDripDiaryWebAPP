@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { selfHttp } from 'src/app/common/app.service';
+import { SelfHttp } from 'src/app/common/app.service';
 import { apiList } from '../../common/app.api';
 import { ToastService } from 'ng-zorro-antd-mobile';
 @Component({
   selector: 'app-write-diary',
   templateUrl: './write-diary.component.html',
   styleUrls: ['./write-diary.component.css'],
-  providers: [selfHttp, apiList]
 })
 export class WriteDiaryComponent implements OnInit {
   dTitle = '';
@@ -14,7 +13,7 @@ export class WriteDiaryComponent implements OnInit {
   userId = JSON.parse(localStorage.getItem("userInfo")).userId;
   privacy = 0;
   constructor(
-    public http: selfHttp,
+    public http: SelfHttp,
     public api: apiList,
     private _toast: ToastService,
   ) { }
@@ -24,9 +23,6 @@ export class WriteDiaryComponent implements OnInit {
     } else {
       this.privacy = 0;
     }
-    console.log(e);
-    console.log(this.dTitle);
-    console.log(this.dContent);
   }
   inputChange(e) {
     console.log(e);
@@ -40,11 +36,12 @@ export class WriteDiaryComponent implements OnInit {
       privacy: this.privacy,
       userId: this.userId
     },res=>{
-      if(res.code===200){
+      if(res.code==200){
         this._toast.success('发布成功', 2000)
-      }if(res.code===201){
+      }else if(res.code==201){
         this._toast.fail('今天已经写过日记了', 2000)
-      }else{
+      }
+      else{
         this._toast.fail('发布失败', 2000)
       }
     })

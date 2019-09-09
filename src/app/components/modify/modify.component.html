@@ -1,7 +1,10 @@
 <Navbar [icon]="icon" [rightContent]="rightContent" mode="light" style="background: #f7f7fa;"
   (onLeftClick)="onLeftClick()">
-  <span class="wTitle">反馈信息</span>
+  <span class="wTitle">修改资料</span>
 </Navbar>
 <ng-template #icon>
   <Icon [type]="'left'" class="left"></Icon>
 </ng-template>
+<ng-template #rightContent>
+        <div Button class="btn" [inline]="true" [size]="'small'" (onClick)="release()">完成</div>
+      </ng-template>

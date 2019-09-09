@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { selfHttp } from 'src/app/common/app.service';
+import { SelfHttp } from 'src/app/common/app.service';
 import { apiList } from '../../common/app.api';
 import { Router } from '@angular/router';
 import { CommentStmt } from '@angular/compiler';
@@ -7,7 +7,7 @@ import { CommentStmt } from '@angular/compiler';
   selector: 'app-look-diary',
   templateUrl: './look-diary.component.html',
   styleUrls: ['./look-diary.component.css'],
-  providers: [selfHttp, apiList]
+
 })
 export class LookDiaryComponent implements OnInit {
   isMobile = /Android|webOS|iPhone|iPod|BlackBerry/i.test(window.navigator.userAgent);
@@ -25,7 +25,7 @@ export class LookDiaryComponent implements OnInit {
   };
   userId: number = JSON.parse(localStorage.getItem("userInfo")).userId;
   constructor(
-    public http: selfHttp,
+    public http: SelfHttp,
     public api: apiList,
     public router:Router
   ) { }
