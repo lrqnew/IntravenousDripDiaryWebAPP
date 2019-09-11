@@ -54,7 +54,10 @@ export class UserCenterComponent implements OnInit {
         })
   };
   // "什么是点滴日记？它是一个专门用来记录个人日记的网络应用。TA能做什么？TA帮你记录每天的成长历程；善用TA，TA就是你记忆的一部分。TA不能做什么？TA除了帮你记录写日记，什么都做不了。我为什么要用TA? TA简单易用，永久免费；如果你想为自己的过去留下一些内容的话，也许TA很适合你。"
-  
+  exited(){
+    localStorage.clear();
+    this.router.navigateByUrl('/login');
+  }
  
   
   ngOnInit() {

@@ -8,6 +8,7 @@ import { ToastService } from 'ng-zorro-antd-mobile';
   styleUrls: ['./write-diary.component.css'],
 })
 export class WriteDiaryComponent implements OnInit {
+  now = new Date().toLocaleString();
   dTitle = '';
   dContent = '';
   userId = JSON.parse(localStorage.getItem("userInfo")).userId;
@@ -17,6 +18,9 @@ export class WriteDiaryComponent implements OnInit {
     public api: apiList,
     private _toast: ToastService,
   ) { }
+  onLeftClick() {
+    history.go(-1);
+  };
   switchCheck(e) {
     if (e) {
       this.privacy = 1;

@@ -18,6 +18,7 @@ const routes: Routes = [
   { path: 'reg', component: RegComponent },
   {
     path: 'index', component: IndexComponent,
+    canActivate:[GuardServiceService],
     children: [{
       path: 'diaryDetalis/:id',
       component:DiaryDetailsComponent,
@@ -38,20 +39,19 @@ const routes: Routes = [
       canActivate:[GuardServiceService]
     },{
       path:'about',
-      component:AboutComponent
+      component:AboutComponent,
+      canActivate:[GuardServiceService]
     },{
       path:'feed',
-      component:FeedbackComponent
+      component:FeedbackComponent,
+      canActivate:[GuardServiceService]
     },{
       path:'modify',
-      component:ModifyComponent
+      component:ModifyComponent,
+      canActivate:[GuardServiceService]
     }
 
     ]
-
-
-
-
   }
 ];
 

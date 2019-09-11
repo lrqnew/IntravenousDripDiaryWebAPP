@@ -1,5 +1,5 @@
 <Navbar [icon]="icon" [rightContent]="rightContent" mode="light" style="background: #f7f7fa;"
-  (onRightClick)="onLeftClick()">
+  (onLeftClick)="onLeftClick()">
   <span class="wTitle">写日记</span>
 </Navbar>
 <ng-template #icon>
@@ -11,7 +11,7 @@
 </ng-template>
 <div class="diary_post" style="font-size:14px;">
     <div class="cells_title">
-      <span>2019年09月06日</span>
+      <span>{{now}}</span>
         <InputItem  [content]="'日记标题'" [placeholder]="'请输入标题'" [(ngModel)]="dTitle">
         </InputItem>
 

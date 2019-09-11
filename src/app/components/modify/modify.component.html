@@ -10,27 +10,36 @@
 </ng-template>
 <div class="diary_post" style="font-size:14px;">
   <div class="cells_title">
-      <InputItem  [content]="'昵称'" [placeholder]="'请输入昵称'" [(ngModel)]="dTitle">
+      <InputItem  [content]="'昵称'" [placeholder]="'请输入昵称'" [(ngModel)]="userName">
       </InputItem>
       <List [className]="'date-picker-list'">
         <ListItem DatePicker
-         [extra]="currentDateFormat(value, 'yyyy-mm-dd')"
+         [extra]="currentDateFormat(birthday, 'yyyy-mm-dd')"
           [arrow]="'horizontal'"
           [mode]="'date'"
-          [(ngModel)]="value"
+          [(ngModel)]="birthday"
           (onOk)="onOk($event)"
         >
           <span class="birthday">生日</span>
-         
         </ListItem>
       </List>
-      <InputItem  [content]="'性别'" [placeholder]="'请输入标题'" [(ngModel)]="dTitle">
-      </InputItem>
+      <ListItem
+      Picker
+      [data]="asynData"
+      
+      [extra]="name"
+      [arrow]="'horizontal'"
+      [(ngModel)]="sex"
+      (onPickerChange)="onPickerChange($event)"
+      (ngModelChange)="onOk4($event)"
+    >
+      <span class="birthday">性别</span>
+    </ListItem>
     <div class="am-demo-page">
       <div class="am-list" style="margin:0;">
         <div class="am-list" style="margin:0;">
           <div class="am-list-body" >
-            <TextareaItem  [title]="'签名'" [rows]="5" [count]="99999999" [placeholder]="'请在此处写下日记内容'" [(ngModel)]="dContent"></TextareaItem>
+            <TextareaItem  [title]="'签名'" [rows]="5" [count]="99999999" [placeholder]="'请在此处写下日记内容'" [(ngModel)]="signs"></TextareaItem>
           </div>
         </div>
       </div>

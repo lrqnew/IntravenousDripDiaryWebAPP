@@ -7,9 +7,9 @@
     <ListItem [multipleLine]="true" [thumb]="'https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png'">
       Category
     </ListItem>
-    <ListItem *ngFor="let num of this.nums; let i = index"
+    <ListItem 
       [thumb]="'https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png'">
-      Category{{ i + 1 }}
+    
     </ListItem>
   </List>
 </ng-template>
@@ -36,16 +36,16 @@
   </div>
 
 </div>
-<List [className]="'my-list'" [renderHeader]="renderHeader">
+<List [className]="'my-list'" >
 </List>
-<List [className]="'my-list'" [renderHeader]="renderHeader1">
+<List [className]="'my-list'" >
   <ListItem [arrow]="'horizontal'" [thumb]='modify' multipleLine [routerLink]="['/index/modify']" routerLinkActive="router-link-active" ><span class="fontIn">修改资料</span>
   </ListItem>
   <ListItem [arrow]="'horizontal'" [thumb]='feedback' multipleLine [routerLink]="['/index/feed']" routerLinkActive="router-link-active" ><span
       class="fontIn">反馈信息</span></ListItem>
   <ListItem [arrow]="'horizontal'" [thumb]='about' multipleLine [routerLink]="['/index/about']" routerLinkActive="router-link-active" ><span
       class="fontIn">关于</span></ListItem>
-  <ListItem [arrow]="'horizontal'" [thumb]='exit' multipleLine (onClick)="onClick()"><span class="fontIn">退出登录</span>
+  <ListItem [arrow]="'horizontal'" [thumb]='exit' multipleLine (onClick)="exited()"><span class="fontIn">退出登录</span>
   </ListItem>
 
   <ng-template #feedback>

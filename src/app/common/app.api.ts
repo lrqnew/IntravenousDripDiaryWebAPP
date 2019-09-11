@@ -66,6 +66,16 @@ export class apiList implements OnInit {
         params:{
           adContent:''
         }
+      },
+      'updateUser':{
+        path:'/api/user/updateUser',
+        params:{
+          userName: '',
+          sex:'',
+          birthday:'',
+          signs:'',
+          userId:''
+        }
       }
     }
   }

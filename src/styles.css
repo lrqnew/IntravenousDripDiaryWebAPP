@@ -13,3 +13,7 @@ html,body{
 .am-textarea-control textarea{
     font-size: 14px;
 }
+.am-picker-popup, .am-picker-popup-mask, .am-picker-popup-wrap{
+    position: static;
+    left: 0;
+}
