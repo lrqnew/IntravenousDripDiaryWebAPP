@@ -179,7 +179,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     //检测设备
     var url = window.location.pathname;
-    var pcurl = "http://localhost:8080" + url
+    var pcurl = "http://rj.oneint.cn" + url
     if (/AppleWebKit.*Mobile/i.test(navigator.userAgent) == false || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent)) == false) {
       if (window.location.href.indexOf("?mobile") < 0) {
         try {

@@ -21,6 +21,7 @@ import { AboutComponent } from './components/about/about.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { ModifyComponent } from './components/modify/modify.component';
 import {SelfHttp} from './common/app.service'
+import {HashLocationStrategy , LocationStrategy} from '@angular/common';
  @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +49,7 @@ import {SelfHttp} from './common/app.service'
     ReactiveFormsModule,
     
   ],
-  providers: [httpInterceptorProviders,apiList,SelfHttp],
+  providers: [httpInterceptorProviders,apiList,SelfHttp,{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

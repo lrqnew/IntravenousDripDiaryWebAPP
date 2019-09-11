@@ -76,6 +76,10 @@ export class ModifyComponent implements OnInit {
       userId:this.userId
     },res=>{
       if(res.code===200){
+        var user= JSON.parse(localStorage.getItem("userInfo"));
+        user.userName=this.userName;
+        user.sex=this.sex[0]=='男'?1:0;
+        localStorage.setItem("userInfo",JSON.stringify(user));
         this._toast.success('修改成功', 2000)
       }else{
         this._toast.fail('修改失败', 2000)
